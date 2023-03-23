@@ -683,6 +683,8 @@ var _entry = require("./Entry");
 var _entryDefault = parcelHelpers.interopDefault(_entry);
 var _profile = require("./Profile");
 var _profileDefault = parcelHelpers.interopDefault(_profile);
+var _game = require("./Game");
+var _gameDefault = parcelHelpers.interopDefault(_game);
 exports.default = (0, _core.createRouter)([
     {
         path: "#/",
@@ -691,10 +693,14 @@ exports.default = (0, _core.createRouter)([
     {
         path: "#/profile",
         component: (0, _profileDefault.default)
+    },
+    {
+        path: "#/game",
+        component: (0, _gameDefault.default)
     }
 ]);
 
-},{"../core":"fyiI3","./Entry":"8Nn3h","./Profile":"juqNE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8Nn3h":[function(require,module,exports) {
+},{"../core":"fyiI3","./Entry":"8Nn3h","./Profile":"juqNE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Game":"ldyal"}],"8Nn3h":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core");
@@ -902,6 +908,375 @@ class Buttons extends (0, _core.Component) {
     }
 }
 exports.default = Buttons;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ldyal":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../core");
+var _header = require("../components/game/Header");
+var _headerDefault = parcelHelpers.interopDefault(_header);
+var _main = require("../components/game/Main");
+var _mainDefault = parcelHelpers.interopDefault(_main);
+var _aside = require("../components/game/Aside");
+var _asideDefault = parcelHelpers.interopDefault(_aside);
+class Game extends (0, _core.Component) {
+    render() {
+        this.element.setAttribute("id", "game");
+        this.element.classList.add("play");
+        this.element.append(new (0, _headerDefault.default)().element, new (0, _mainDefault.default)().element, new (0, _asideDefault.default)().element);
+    }
+}
+exports.default = Game;
+
+},{"../core":"fyiI3","../components/game/Header":"4tWIB","../components/game/Main":"bDZWh","../components/game/Aside":"l7ZBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4tWIB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Header extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "header"
+        });
+    }
+    render() {
+        this.element.innerHTML = /* html */ `
+      <h1>Your Mind</h1>
+    `;
+    }
+}
+exports.default = Header;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bDZWh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _word = require("./Word");
+var _wordDefault = parcelHelpers.interopDefault(_word);
+var _timer = require("./Timer");
+var _timerDefault = parcelHelpers.interopDefault(_timer);
+var _drawingCanvas = require("./DrawingCanvas");
+var _drawingCanvasDefault = parcelHelpers.interopDefault(_drawingCanvas);
+var _userControl = require("./UserControl");
+var _userControlDefault = parcelHelpers.interopDefault(_userControl);
+class Main extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "main"
+        });
+    }
+    render() {
+        this.element.append(new (0, _wordDefault.default)().element, new (0, _timerDefault.default)().element, new (0, _drawingCanvasDefault.default)().element, new (0, _userControlDefault.default)().element);
+    }
+}
+exports.default = Main;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Word":"92mNa","./Timer":"awrfO","./DrawingCanvas":"98KEs","./UserControl":"5rI05"}],"92mNa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Word extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "ul"
+        });
+    }
+    render() {
+        const word = "test";
+        const letters = [
+            ...word
+        ].reduce((acc, _cur)=>{
+            acc += `<li>?</li>`;
+            return acc;
+        }, "");
+        this.element.classList.add("word");
+        this.element.innerHTML = letters;
+    }
+}
+exports.default = Word;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"awrfO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Timer extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "span"
+        });
+    }
+    render() {
+        this.element.classList.add("timer");
+        this.element.innerText = "02:00";
+    }
+}
+exports.default = Timer;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"98KEs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _canvasPaper = require("./CanvasPaper");
+var _canvasPaperDefault = parcelHelpers.interopDefault(_canvasPaper);
+var _paintTools = require("./PaintTools");
+var _paintToolsDefault = parcelHelpers.interopDefault(_paintTools);
+class DrawingCanvas extends (0, _core.Component) {
+    render() {
+        this.element.setAttribute("id", "canvas");
+        this.element.append(new (0, _canvasPaperDefault.default)().element, new (0, _paintToolsDefault.default)().element);
+    }
+}
+exports.default = DrawingCanvas;
+
+},{"../../core":"fyiI3","./CanvasPaper":"j9ULT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./PaintTools":"amhK3"}],"j9ULT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class CanvasPaper extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("canvas-paper");
+    }
+}
+exports.default = CanvasPaper;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"amhK3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class PaintTools extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "ul"
+        });
+    }
+    render() {
+        const paintColors = [
+            "black",
+            "red",
+            "orange",
+            "yellow",
+            "green",
+            "blue",
+            "purple",
+            "white"
+        ];
+        const createTools = (type, color = null)=>{
+            const li = document.createElement("li");
+            const btn = document.createElement("button");
+            li.append(btn);
+            btn.classList.add(type);
+            if (type === "brush") btn.style.backgroundColor = color;
+            else {
+                const icon = document.createElement("i");
+                icon.classList = type === "eraser" ? "fa-solid fa-eraser" : "fa-solid fa-rotate-right";
+                btn.append(icon);
+            }
+            return li;
+        };
+        const brushes = paintColors.map((color)=>createTools("brush", color));
+        const eraser = createTools("eraser");
+        const clear = createTools("clear");
+        this.element.classList.add("paint-tools");
+        this.element.append(...brushes, eraser, clear);
+    }
+}
+exports.default = PaintTools;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5rI05":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _userProfile = require("./UserProfile");
+var _userProfileDefault = parcelHelpers.interopDefault(_userProfile);
+var _gameButtons = require("./GameButtons");
+var _gameButtonsDefault = parcelHelpers.interopDefault(_gameButtons);
+class UserControl extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("user-control");
+        this.element.append(new (0, _userProfileDefault.default)().element, new (0, _gameButtonsDefault.default)().element);
+    }
+}
+exports.default = UserControl;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./UserProfile":"l3GnA","./GameButtons":"bfQON"}],"l3GnA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class UserProfile extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "ul"
+        });
+    }
+    render() {
+        this.element.classList.add("user-profile");
+        this.element.innerHTML = /* html */ `
+      <li class="user-image">🐰</li>
+      <li class="user-name">
+        <span>USERNAME</span>
+        <span>Alice</span>
+      </li>
+      <li class="user-score">
+        <span>SCORE</span>
+        <span>100</span>
+      </li>
+    `;
+    }
+}
+exports.default = UserProfile;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bfQON":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class GameButtons extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "ul"
+        });
+    }
+    render() {
+        this.element.classList.add("game-btns");
+        this.element.innerHTML = /* html */ `
+      <li>
+        <button class="start-btn">START!</button>
+      </li>
+      <li>
+        <button class="like-btn">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+      </li>
+    `;
+    }
+}
+exports.default = GameButtons;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l7ZBx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _playerList = require("./PlayerList");
+var _playerListDefault = parcelHelpers.interopDefault(_playerList);
+var _chat = require("./Chat");
+var _chatDefault = parcelHelpers.interopDefault(_chat);
+class Aside extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "aside"
+        });
+    }
+    render() {
+        this.element.append(new (0, _playerListDefault.default)().element, new (0, _chatDefault.default)().element);
+    }
+}
+exports.default = Aside;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./PlayerList":"453P0","./Chat":"4O7W6"}],"453P0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class PlayerList extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("player-list");
+        this.element.innerHTML = /* html */ `
+      <ul></ul>
+    `;
+        const test = [
+            {
+                avatar: "\uD83D\uDC3A",
+                username: "John",
+                score: 0
+            },
+            {
+                avatar: "\uD83D\uDC28",
+                username: "Jane",
+                score: 0
+            }
+        ];
+        const players = test.map((player)=>{
+            const html = `
+        <li>
+          <span class="player-avatar">${player.avatar}</span>
+          <span class="player-username">${player.username}</span>
+          <span class="player-score">${player.score}</span>
+        </li>
+      `;
+            return html;
+        });
+        this.element.querySelector("ul").innerHTML = players.join("");
+    }
+}
+exports.default = PlayerList;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4O7W6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _dialogue = require("./Dialogue");
+var _dialogueDefault = parcelHelpers.interopDefault(_dialogue);
+var _chatForm = require("./ChatForm");
+var _chatFormDefault = parcelHelpers.interopDefault(_chatForm);
+class Chat extends (0, _core.Component) {
+    render() {
+        this.element.setAttribute("id", "chat");
+        this.element.append(new (0, _dialogueDefault.default)().element, new (0, _chatFormDefault.default)().element);
+    }
+}
+exports.default = Chat;
+
+},{"../../core":"fyiI3","./Dialogue":"jSFys","./ChatForm":"9vjlN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jSFys":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Dialogue extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "ul"
+        });
+    }
+    render() {
+        this.element.classList.add("chat-dialogue");
+        const test = [
+            {
+                avatar: "\uD83E\uDD92",
+                username: "Sam",
+                content: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
+            }
+        ];
+        const chatBubbles = test.map((chat)=>{
+            const html = `
+        <li>
+          <div class="user-profile-image">
+          ${chat.avatar}
+          </div>
+          <div class="user-dialogue">
+            <span>${chat.username}</span>
+            <p class="dialogue-bubble">
+              ${chat.content}
+            </p>
+          </div>
+        </li>
+      `;
+            return html;
+        });
+        this.element.innerHTML = chatBubbles.join("");
+    }
+}
+exports.default = Dialogue;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9vjlN":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class ChatForm extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("chat-form");
+        this.element.innerHTML = /* html */ `
+      <input type="text" name="chat-input" id="chat-input" />
+      <button><i class="fa-solid fa-comment-dots"></i></button>
+    `;
+    }
+}
+exports.default = ChatForm;
 
 },{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire77be")
 

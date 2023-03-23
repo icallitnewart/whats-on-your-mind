@@ -32,6 +32,10 @@ ol {
 /* Reset CSS : End */
 
 /* Common CSS : Start */
+body {
+	min-height: 800px;
+}
+
 main.box-container {
 	display: flex;
 	width: 500px;
@@ -264,3 +268,480 @@ main.box-container {
 	background-color: gold;
 }
 /* Profile : End */
+
+/* Game : Start */
+#game.play {
+	display: flex;
+	flex-wrap: wrap;
+	height: 700px;
+	padding-top: 30px;
+}
+
+#game.play > header > h1 {
+	margin: 30px 0;
+	font-family: 'Barrio', cursive;
+	font-size: 50px;
+	margin-bottom: 10px;
+}
+
+#game.play > header {
+	width: 100%;
+}
+
+#game.play > main {
+	position: relative;
+	width: 500px;
+	height: calc(100% - 97px);
+}
+
+#game.play > main > ul.word {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 1;
+	display: flex;
+}
+
+#game.play > main > ul.word > li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #555;
+	margin-right: 10px;
+	font: 400 40px/1 'arial';
+	color: #333;
+	box-shadow: 3px 3px 0px #333;
+	background-color: #fae6e6;
+}
+
+#game.play > main > span.timer {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 1;
+	font: 600 40px/1 'Barrio', cursive;
+}
+
+#game.play > main > #canvas {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	border: 1px solid #000;
+	box-sizing: border-box;
+}
+
+#game.play > main > #canvas > .canvas-paper {
+	width: 100%;
+	height: calc(100% - 45px);
+}
+
+#game.play > main > #canvas > ul.paint-tools {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 46px;
+}
+
+#game.play > main > #canvas > ul.paint-tools > li {
+	margin: 0px 7px;
+}
+
+#game.play > main > #canvas > ul.paint-tools > li > button {
+	background-color: transparent;
+	cursor: pointer;
+	border: 0;
+	font-size: 20px;
+	color: #333;
+}
+
+#game.play > main > #canvas > ul.paint-tools > li > button.brush {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #222;
+	box-shadow: 2px 2px 0px #333;
+	background-color: transparent;
+}
+
+#game.play > main > #canvas > ul.paint-tools > li:not(.active):hover button {
+	transform: scale(1.2);
+}
+
+#game.play > main > #canvas > ul.paint-tools > li.active button {
+	box-shadow: none;
+	transform: translate(2px, 2px);
+}
+
+#game.play > main > .user-control {
+	display: flex;
+	justify-content: space-between;
+	height: calc(100% - 500px);
+	border: 1px solid #000;
+	border-top: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	background-color: gold;
+}
+
+#game.play > main > .user-control > ul.user-profile {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+#game.play > main > .user-control > ul.user-profile > li {
+	height: 50px;
+}
+
+#game.play > main > .user-control > ul.user-profile > li.user-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	font-size: 35px;
+	border: 1px solid #222;
+	border-radius: 10px;
+	background-color: #fae6e6;
+}
+
+#game.play > main > .user-control > ul.user-profile > li.user-name,
+#game.play > main > .user-control > ul.user-profile > li.user-score {
+	width: 118px;
+	margin-left: 10px;
+	font: 500 18px/1 'Poppins', sans-serif;
+	color: #333;
+	box-sizing: border-box;
+	border: 1px solid #222;
+	background-color: #fff;
+	border-radius: 10px;
+	text-align: center;
+	overflow: hidden;
+}
+
+#game.play > main > .user-control > ul.user-profile > li.user-score {
+}
+
+#game.play > main > .user-control > ul.user-profile > li > span:nth-child(1) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 20px;
+	font: 11px/1 'Poppins', sans-serif;
+	color: #fff;
+	background-color: #222;
+	letter-spacing: 1px;
+}
+
+#game.play > main > .user-control > ul.user-profile > li > span:nth-child(2) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: calc(100% - 20px);
+	background-color: antiquewhite;
+}
+
+#game.play > main > .user-control > ul.game-btns {
+	display: flex;
+	height: 100%;
+}
+
+#game.play > main > .user-control > ul.game-btns > li {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin-left: 10px;
+}
+
+#game.play > main > .user-control > ul.game-btns > li > button {
+	position: relative;
+	z-index: 1;
+	height: 50px;
+	color: #fff;
+	font: 16px/1 'Poppins', sans-serif;
+	letter-spacing: 2px;
+	border: 1px solid #222;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+/*
+#game.play > main > .user-control > ul.game-btns > li > button.exit-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	color: #222;
+	font-size: 22px;
+	padding-top: 2px;
+	background-color: antiquewhite;
+}
+
+#game.play > main > .user-control > ul.game-btns > li > button.exit-btn:hover {
+	font-size: 24px;
+}*/
+
+#game.play > main > .user-control > ul.game-btns > li > button.like-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	font-size: 26px;
+	color: coral;
+	background-color: antiquewhite;
+	-webkit-text-stroke: 1px #222;
+}
+
+#game.play > main > .user-control > ul.game-btns > li > button.like-btn:hover {
+	font-size: 30px;
+}
+
+#game.play > main > .user-control > ul.game-btns > li > button.start-btn {
+	width: 100px;
+	background-color: #222;
+}
+
+#game.play > main > .user-control > ul.game-btns > li > button.start-btn:hover {
+	font-size: 18px;
+}
+
+#game.play > aside {
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 500px);
+	height: calc(100% - 97px);
+	padding: 5px 5px 5px 20px;
+	box-sizing: border-box;
+}
+
+#game.play > aside > .player-list {
+	width: 100%;
+	height: auto;
+	margin-bottom: 5px;
+}
+
+#game.play > aside > .player-list > ul {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 100%;
+}
+
+#game.play > aside > .player-list > ul > li {
+	position: relative;
+	width: calc(50% - 10px);
+	height: 50px;
+	margin-bottom: 10px;
+	border: 1px solid #222;
+	box-sizing: border-box;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#game.play > aside > .player-list > ul > li.winner::before {
+	position: absolute;
+	top: 0px;
+	left: 15px;
+	z-index: 1;
+	display: block;
+	content: '\f521';
+	font-weight: 600;
+	color: gold;
+	-webkit-text-stroke: 2px #000;
+	font-family: 'Font Awesome 6 Free';
+}
+
+#game.play > aside > .player-list > ul > li.play-host::before {
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	z-index: 1;
+	display: flex;
+	content: '방장';
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 14px;
+	background-color: darkslategrey;
+	border-radius: 2px;
+	color: #fff;
+	font: 400 8px/1 'Nanum Gothic', sans-serif;
+}
+
+#game.play > aside > .player-list > ul > li.painter > .player-avatar::before {
+	position: absolute;
+	bottom: 2px;
+	left: 32px;
+	z-index: 1;
+	display: block;
+	content: '🎨';
+	font-size: 12px;
+}
+
+#game.play > aside > .player-list > ul > li:nth-child(odd) {
+	margin-right: 15px;
+}
+
+#game.play > aside > .player-list > ul > li::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#game.play > aside > .player-list > ul > li > span {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	box-sizing: border-box;
+	color: #222;
+	float: left;
+}
+
+#game.play > aside > .player-list > ul > li > span.player-avatar {
+	height: 100%;
+	border-right: 1px solid #222;
+	background-color: #fae6e6;
+	font-size: 30px;
+}
+
+#game.play > aside > .player-list > ul > li > span.player-username {
+	width: calc(100% - 50px);
+	height: 50%;
+	border-bottom: 1px solid #222;
+	font: 500 14px/1 'Poppins', sans-serif;
+	padding: 0 5px;
+	background-color: gold;
+}
+
+#game.play > aside > .player-list > ul > li > span.player-score {
+	width: calc(100% - 50px);
+	height: 50%;
+	font: 500 14px/1 'Poppins', sans-serif;
+	padding: 0 5px;
+	background-color: antiquewhite;
+	letter-spacing: 1px;
+}
+
+#game.play > aside > #chat {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	background-color: antiquewhite;
+	border: 1px solid #222;
+	border-radius: 10px;
+	overflow: hidden;
+	padding-top: 5px;
+}
+
+#game.play > aside > #chat > ul.chat-dialogue {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	padding: 5px 10px;
+	box-sizing: border-box;
+}
+
+#game.play > aside > #chat > ul.chat-dialogue > li {
+	display: flex;
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+#game.play > aside > #chat > ul.chat-dialogue > li > .user-profile-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+	font-size: 18px;
+}
+
+#game.play > aside > #chat > ul.chat-dialogue > li > .user-dialogue {
+	max-width: calc(100% - 50px);
+}
+
+#game.play > aside > #chat > ul.chat-dialogue > li > .user-dialogue > span {
+	display: block;
+	font: 500 12px/1 'Poppins', sans-serif;
+	padding-top: 5px;
+	margin-bottom: 3px;
+}
+
+#game.play
+	> aside
+	> #chat
+	> ul.chat-dialogue
+	> li
+	> .user-dialogue
+	> p.dialogue-bubble {
+	position: relative;
+	height: auto;
+	border: 1px solid #222;
+	border-radius: 10px;
+	background-color: #fff;
+	padding: 7px 10px;
+	box-sizing: border-box;
+	word-break: break-all;
+	font: 13px/1.5 'Nanum Gothic', sans-serif;
+}
+
+#game.play
+	> aside
+	> #chat
+	> ul.chat-dialogue
+	> li
+	> .user-dialogue
+	> p.dialogue-bubble::before {
+}
+
+#game.play > aside > #chat > ul.chat-dialogue::-webkit-scrollbar {
+	width: 10px;
+	background-color: transparent;
+}
+
+#game.play > aside > #chat > ul.chat-dialogue::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #222;
+	background-clip: padding-box;
+	border: 2px solid transparent;
+}
+
+#game.play > aside > #chat > .chat-form {
+	display: flex;
+	width: 100%;
+	height: 45px;
+	background-color: #fff;
+	border-top: 1px solid #222;
+}
+
+#game.play > aside > #chat > .chat-form > #chat-input {
+	width: calc(100% - 45px);
+	height: 100%;
+	outline: none;
+	border: 0;
+	padding: 0px 10px;
+	font: 14px/1 'Nanum Gothic', sans-serif;
+	box-sizing: border-box;
+}
+
+#game.play > aside > #chat > .chat-form > button {
+	width: 45px;
+	height: 100%;
+	border: 0;
+	background-color: #222;
+	color: gold;
+	font-size: 20px;
+	cursor: pointer;
+}
+/* Game : End */
