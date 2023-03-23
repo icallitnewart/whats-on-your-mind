@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Barrio&family=Poppins:wght@400;500;600;700&display=swap');
+
+html {
+	--font-title: 'Barrio', cursive;
+	--font-en: 'Poppins', sans-serif;
+	--font-ko: 'Nanum Gothic', sans-serif;
+
+	--color-black: #000000;
+	--color-black-2: #222222;
+	--color-black-3: #333333;
+	--color-white: #ffffff;
+	--color-main: gold;
+	--color-sub-1: antiquewhite;
+	--color-sub-2: #fae6e6;
+}
+
+/* Reset CSS : Start */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+/* Reset CSS : End */
