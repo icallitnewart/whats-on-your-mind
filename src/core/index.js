@@ -7,7 +7,9 @@ export class Component {
       props = {}
     } = payload;
 
-    this.element = document.createElement(tagName);
+    this.element = tagName
+      ? document.createElement(tagName)
+      : document.createDocumentFragment();
     this.state = state;
     this.props = props;
     this.render();

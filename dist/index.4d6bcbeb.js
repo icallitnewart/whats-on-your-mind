@@ -593,7 +593,7 @@ parcelHelpers.export(exports, "Store", ()=>Store);
 class Component {
     constructor(payload = {}){
         const { tagName ="div" , state ={} , props ={}  } = payload;
-        this.element = document.createElement(tagName);
+        this.element = tagName ? document.createElement(tagName) : document.createDocumentFragment();
         this.state = state;
         this.props = props;
         this.render();
@@ -681,14 +681,20 @@ parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core");
 var _entry = require("./Entry");
 var _entryDefault = parcelHelpers.interopDefault(_entry);
+var _profile = require("./Profile");
+var _profileDefault = parcelHelpers.interopDefault(_profile);
 exports.default = (0, _core.createRouter)([
     {
         path: "#/",
         component: (0, _entryDefault.default)
+    },
+    {
+        path: "#/profile",
+        component: (0, _profileDefault.default)
     }
 ]);
 
-},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Entry":"8Nn3h"}],"8Nn3h":[function(require,module,exports) {
+},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Entry":"8Nn3h","./Profile":"juqNE"}],"8Nn3h":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core");
@@ -718,7 +724,8 @@ class Header extends (0, _core.Component) {
         });
     }
     render() {
-        this.element.append(new (0, _logoDefault.default)().element, new (0, _menuDefault.default)().element);
+        const path = location.hash.replace("#/", "");
+        this.element.append(new (0, _logoDefault.default)().element, !path ? new (0, _menuDefault.default)().element : "");
     }
 }
 exports.default = Header;
@@ -764,6 +771,137 @@ class Menu extends (0, _core.Component) {
     }
 }
 exports.default = Menu;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"juqNE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../core");
+var _header = require("../components/entry/Header");
+var _headerDefault = parcelHelpers.interopDefault(_header);
+var _main = require("../components/profile/Main");
+var _mainDefault = parcelHelpers.interopDefault(_main);
+class Profile extends (0, _core.Component) {
+    render() {
+        this.element.setAttribute("id", "game");
+        this.element.classList.add("entry", "profile");
+        this.element.append(new (0, _headerDefault.default)().element, new (0, _mainDefault.default)().element);
+    }
+}
+exports.default = Profile;
+
+},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../components/entry/Header":"fhVa8","../components/profile/Main":"eI4VK"}],"eI4VK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _profileImage = require("./ProfileImage");
+var _profileImageDefault = parcelHelpers.interopDefault(_profileImage);
+var _form = require("./Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+class Main extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "main"
+        });
+    }
+    render() {
+        this.element.classList.add("box-container");
+        this.element.append(new (0, _profileImageDefault.default)().element, new (0, _formDefault.default)().element);
+    }
+}
+exports.default = Main;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./ProfileImage":"ljsdD","./Form":"k6iyu"}],"ljsdD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class ProfileImage extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("profile-image");
+        this.element.innerHTML = /* html */ `
+      <div class="pic">🐯</div>
+    `;
+    }
+}
+exports.default = ProfileImage;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k6iyu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _username = require("./Username");
+var _usernameDefault = parcelHelpers.interopDefault(_username);
+var _avatar = require("./Avatar");
+var _avatarDefault = parcelHelpers.interopDefault(_avatar);
+var _buttons = require("./Buttons");
+var _buttonsDefault = parcelHelpers.interopDefault(_buttons);
+class Form extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("profile-form");
+        this.element.append(new (0, _usernameDefault.default)().element, new (0, _avatarDefault.default)().element, new (0, _buttonsDefault.default)().element);
+    }
+}
+exports.default = Form;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Username":"1kB45","./Avatar":"29yu6","./Buttons":"1VAhA"}],"1kB45":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Username extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("username");
+        this.element.innerHTML = /* html */ `
+      <label for="username">USERNAME</label>
+      <input type="text" name="username" id="username" />
+    `;
+    }
+}
+exports.default = Username;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"29yu6":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Avatar extends (0, _core.Component) {
+    async render() {
+        const avatars = [
+            "\uD83D\uDC3A",
+            "\uD83D\uDC28",
+            "\uD83D\uDC38",
+            "\uD83D\uDC2F",
+            "\uD83D\uDC39",
+            "\uD83E\uDD9D",
+            "\uD83E\uDD92",
+            "\uD83D\uDC30"
+        ];
+        this.element.classList.add("avatars");
+        this.element.innerHTML = /* html */ `
+      <label for="avatar">AVATAR</label>
+      <input type="hidden" name="avatar" id="avatar">
+      <ul></ul>
+    `;
+        const images = avatars.reduce((acc, cur)=>{
+            acc += `<li><span class="pic">${cur}</span></li>`;
+            return acc;
+        }, "");
+        this.element.querySelector("ul").innerHTML = images;
+    }
+}
+exports.default = Avatar;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1VAhA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Buttons extends (0, _core.Component) {
+    render() {
+        this.element.classList.add("btns");
+        this.element.innerHTML = /* html */ `
+      <button onclick="history.go(-1)">Back</button>
+      <button id="playBtn" onclick="location.href='/game.html'">Next</button>
+    `;
+    }
+}
+exports.default = Buttons;
 
 },{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire77be")
 

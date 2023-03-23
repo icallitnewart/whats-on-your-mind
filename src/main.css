@@ -31,6 +31,21 @@ ol {
 }
 /* Reset CSS : End */
 
+/* Common CSS : Start */
+main.box-container {
+	display: flex;
+	width: 500px;
+	height: 400px;
+	margin: 0 auto;
+	padding: 30px;
+	box-sizing: border-box;
+	position: relative;
+	background-color: #f7f3ed;
+	border: 1px solid #000;
+	box-shadow: 7px 7px 0px 2px;
+}
+/* Common CSS : End */
+
 #game {
 	width: 850px;
 	height: auto; /*temp*/
@@ -118,3 +133,134 @@ ol {
 	transform: scale(1.1);
 }
 /* Entry : End */
+
+/* Profile : Start */
+#game.profile > header > h1 {
+	margin-bottom: 40px;
+}
+
+#game.profile > main.box-container > .profile-image {
+	width: 30%;
+	min-width: 100px;
+}
+
+#game.profile > main.box-container > .profile-image > .pic {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	border: 1px solid #333;
+	background-color: antiquewhite;
+	font-size: 75px;
+}
+
+#game.profile > main.box-container > .profile-form {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	padding: 0 35px 0 30px;
+}
+
+#game.profile > main.box-container > .profile-form > .username {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#game.profile > main.box-container > .profile-form label {
+	font: 600 13px/1 'Poppins';
+	color: #555;
+	letter-spacing: 1px;
+	margin: 10px 0px 5px;
+}
+
+#game.profile
+	> main.box-container
+	> .profile-form
+	> .username
+	> input[type='text'] {
+	max-width: 240px;
+	height: 35px;
+	font: 16px/1 'Poppins', 'arial';
+	border: 0;
+	border-bottom: 1px solid #333;
+	outline: none;
+	background-color: transparent;
+}
+
+#game.profile > main.box-container > .profile-form > .avatars {
+	width: 100%;
+	margin-bottom: 25px;
+}
+#game.profile > main.box-container > .profile-form > .avatars > ul {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding-top: 10px;
+}
+
+#game.profile > main.box-container > .profile-form > .avatars > ul > li {
+	width: 55px;
+	height: 55px;
+	margin: 7px 10px 7px 0;
+}
+
+#game.profile
+	> main.box-container
+	> .profile-form
+	> .avatars
+	> ul
+	> li
+	> span.pic {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	font-size: 30px;
+	box-sizing: border-box;
+	background-color: #bbb;
+	cursor: pointer;
+}
+
+#game.profile
+	> main.box-container
+	> .profile-form
+	> .avatars
+	> ul
+	> li
+	> span.pic:hover {
+	border: 3px solid rgb(62, 78, 33);
+	font-size: 32px;
+}
+
+#game.profile > main.box-container > .profile-form > .btns {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#game.profile > main.box-container > .profile-form > .btns > button {
+	width: 100px;
+	height: 40px;
+	margin-left: 10px;
+	border-radius: 20px;
+	background-color: #222;
+	font: 14px/1 'Poppins';
+	color: #fff;
+	cursor: pointer;
+}
+
+#game.profile > main.box-container > .profile-form > .btns > button:hover {
+	font-size: 16px;
+}
+
+#game.profile > main.box-container > .profile-form > .btns > button#playBtn {
+	color: #222;
+	font-weight: 600;
+	background-color: gold;
+}
+/* Profile : End */

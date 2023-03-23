@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "animal": "wolf",
+      "image": "🐺"
+    },
+    {
+      "animal": "koala",
+      "image": "🐨"
+    },
+    {
+      "animal": "frog",
+      "image": "🐸"
+    },
+    {
+      "animal": "tiger",
+      "image": "🐯"
+    },
+    {
+      "animal": "hamster",
+      "image": "🐹"
+    },
+    {
+      "animal": "racoon",
+      "image": "🦝"
+    },
+    {
+      "animal": "🦒",
+      "image": "giraffe"
+    },
+    {
+      "animal": "rabbit",
+      "image": "🐰"
+    }
+  ]
+}

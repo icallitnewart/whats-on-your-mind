@@ -8,10 +8,13 @@ export default class Header extends Component {
       tagName: 'header'
     })
   }
+
   render() {
+    const path = location.hash.replace('#/', '');
+
     this.element.append(
       new Logo().element,
-      new Menu().element
+      (!path) ? new Menu().element : ''
     )
   }
 }
