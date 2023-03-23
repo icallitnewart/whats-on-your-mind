@@ -692,15 +692,79 @@ exports.default = (0, _core.createRouter)([
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core");
+var _header = require("../components/entry/Header");
+var _headerDefault = parcelHelpers.interopDefault(_header);
 class Entry extends (0, _core.Component) {
     render() {
-        this.element.innerHTML = /* html */ `
-      <h1>Hello World!</h1>
-    `;
+        this.element.setAttribute("id", "game");
+        this.element.classList.add("entry");
+        this.element.append(new (0, _headerDefault.default)().element);
     }
 }
 exports.default = Entry;
 
-},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire77be")
+},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../components/entry/Header":"fhVa8"}],"fhVa8":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+var _logo = require("./Logo");
+var _logoDefault = parcelHelpers.interopDefault(_logo);
+var _menu = require("./Menu");
+var _menuDefault = parcelHelpers.interopDefault(_menu);
+class Header extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "header"
+        });
+    }
+    render() {
+        this.element.append(new (0, _logoDefault.default)().element, new (0, _menuDefault.default)().element);
+    }
+}
+exports.default = Header;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Logo":"6gfdI","../../core":"fyiI3","./Menu":"6kmtg"}],"6gfdI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Logo extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "h1"
+        });
+        this.element.textContent = "Your Mind";
+        const span = document.createElement("span");
+        span.innerText = "What's on";
+        this.element.prepend(span);
+    }
+}
+exports.default = Logo;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6kmtg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _core = require("../../core");
+class Menu extends (0, _core.Component) {
+    constructor(){
+        super({
+            tagName: "nav"
+        });
+    }
+    render() {
+        this.element.innerHTML = /* html */ `
+      <ul>
+        <li>
+          <button onclick="location.href='#/profile'">Play</button>
+        </li>
+        <li>
+          <button>Settings</button>
+        </li>
+      </ul>
+    `;
+    }
+}
+exports.default = Menu;
+
+},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["e11Rl","gLLPy"], "gLLPy", "parcelRequire77be")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map
