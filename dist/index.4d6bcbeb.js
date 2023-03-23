@@ -694,7 +694,7 @@ exports.default = (0, _core.createRouter)([
     }
 ]);
 
-},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Entry":"8Nn3h","./Profile":"juqNE"}],"8Nn3h":[function(require,module,exports) {
+},{"../core":"fyiI3","./Entry":"8Nn3h","./Profile":"juqNE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8Nn3h":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../core");
@@ -709,7 +709,7 @@ class Entry extends (0, _core.Component) {
 }
 exports.default = Entry;
 
-},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../components/entry/Header":"fhVa8"}],"fhVa8":[function(require,module,exports) {
+},{"../core":"fyiI3","../components/entry/Header":"fhVa8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fhVa8":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../../core");
@@ -730,7 +730,7 @@ class Header extends (0, _core.Component) {
 }
 exports.default = Header;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Logo":"6gfdI","../../core":"fyiI3","./Menu":"6kmtg"}],"6gfdI":[function(require,module,exports) {
+},{"../../core":"fyiI3","./Logo":"6gfdI","./Menu":"6kmtg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6gfdI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../../core");
@@ -789,7 +789,7 @@ class Profile extends (0, _core.Component) {
 }
 exports.default = Profile;
 
-},{"../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../components/entry/Header":"fhVa8","../components/profile/Main":"eI4VK"}],"eI4VK":[function(require,module,exports) {
+},{"../core":"fyiI3","../components/entry/Header":"fhVa8","../components/profile/Main":"eI4VK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eI4VK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../../core");
@@ -810,7 +810,7 @@ class Main extends (0, _core.Component) {
 }
 exports.default = Main;
 
-},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./ProfileImage":"ljsdD","./Form":"k6iyu"}],"ljsdD":[function(require,module,exports) {
+},{"../../core":"fyiI3","./ProfileImage":"ljsdD","./Form":"k6iyu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ljsdD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../../core");
@@ -842,7 +842,7 @@ class Form extends (0, _core.Component) {
 }
 exports.default = Form;
 
-},{"../../core":"fyiI3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Username":"1kB45","./Avatar":"29yu6","./Buttons":"1VAhA"}],"1kB45":[function(require,module,exports) {
+},{"../../core":"fyiI3","./Username":"1kB45","./Avatar":"29yu6","./Buttons":"1VAhA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1kB45":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../../core");
@@ -862,7 +862,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _core = require("../../core");
 class Avatar extends (0, _core.Component) {
-    async render() {
+    render() {
         const avatars = [
             "\uD83D\uDC3A",
             "\uD83D\uDC28",
