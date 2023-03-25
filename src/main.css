@@ -167,10 +167,21 @@ main.box-container {
 }
 
 #game.profile > main.box-container > .profile-form > .username {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	margin-bottom: 20px;
+}
+
+#game.profile > main.box-container > .profile-form > .username > span.errMsg {
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	font-size: 12px;
+	font-family: var(--font-ko);
+	font-weight: 600;
+	color: #e5559d;
 }
 
 #game.profile > main.box-container > .profile-form label {
@@ -187,7 +198,7 @@ main.box-container {
 	> input[type='text'] {
 	max-width: 240px;
 	height: 35px;
-	font: 16px/1 'Poppins', 'arial';
+	font: 500 15px/1 'Poppins', 'arial';
 	border: 0;
 	border-bottom: 1px solid var(--color-black-3);
 	outline: none;
@@ -236,7 +247,14 @@ main.box-container {
 	> .avatars
 	> ul
 	> li
-	> span.pic:hover {
+	> span.pic:hover,
+#game.profile
+	> main.box-container
+	> .profile-form
+	> .avatars
+	> ul
+	> li.active
+	> span.pic {
 	border: 3px solid rgb(62, 78, 33);
 	font-size: 32px;
 }
@@ -262,7 +280,7 @@ main.box-container {
 	font-size: 16px;
 }
 
-#game.profile > main.box-container > .profile-form > .btns > button#playBtn {
+#game.profile > main.box-container > .profile-form > .btns > button#nextBtn {
 	color: var(--color-black-2);
 	font-weight: 600;
 	background-color: var(--color-main);
@@ -410,7 +428,7 @@ main.box-container {
 #game.play > main > .user-control > ul.user-profile > li.user-score {
 	width: 118px;
 	margin-left: 10px;
-	font: 500 18px/1 var(--font-en);
+	font: 600 14px/1 'Poppins';
 	color: var(--color-black-3);
 	box-sizing: border-box;
 	border: 1px solid var(--color-black-2);

@@ -1,6 +1,14 @@
 {
   "data": [
     {
+      "animal": "rabbit",
+      "image": "🐰"
+    },
+    {
+      "animal": "tiger",
+      "image": "🐯"
+    },
+    {
       "animal": "wolf",
       "image": "🐺"
     },
@@ -13,10 +21,6 @@
       "image": "🐸"
     },
     {
-      "animal": "tiger",
-      "image": "🐯"
-    },
-    {
       "animal": "hamster",
       "image": "🐹"
     },
@@ -25,12 +29,8 @@
       "image": "🦝"
     },
     {
-      "animal": "🦒",
-      "image": "giraffe"
-    },
-    {
-      "animal": "rabbit",
-      "image": "🐰"
+      "animal": "giraffe",
+      "image": "🦒"
     }
   ]
 }
