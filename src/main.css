@@ -45,7 +45,7 @@ main.box-container {
 	box-sizing: border-box;
 	position: relative;
 	background-color: #f7f3ed;
-	border: 1px solid #000;
+	border: 1px solid var(--color-black);
 	box-shadow: 7px 7px 0px 2px;
 }
 /* Common CSS : End */
@@ -71,7 +71,7 @@ main.box-container {
 
 #game.entry > header > h1 {
 	margin: 30px 0;
-	font-family: 'Barrio', cursive;
+	font-family: var(--font-title);
 	font-size: 80px;
 	/* transition: all 0.5s; */
 	margin-bottom: 80px;
@@ -112,28 +112,28 @@ main.box-container {
 #game.entry > header > nav > ul > li > button {
 	width: 180px;
 	height: 60px;
-	background-color: #000;
+	background-color: var(--color-black);
 	border-radius: 100px;
 	border-width: 2px;
 	cursor: pointer;
 	/* transition: all 0.3s; */
 
 	letter-spacing: 1px;
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-en);
 	font-size: 20px;
-	color: #fff;
+	color: var(--color-white);
 }
 
 #game.entry > header > nav > ul > li:first-child > button {
-	background-color: gold;
-	color: #000;
+	background-color: var(--color-main);
+	color: var(--color-black);
 	font-weight: 600;
 }
 
 #game.entry > header > nav > ul > li > button:hover {
 	font-weight: 600;
-	background-color: antiquewhite;
-	color: #000;
+	background-color: var(--color-sub-1);
+	color: var(--color-black);
 	transform: scale(1.1);
 }
 /* Entry : End */
@@ -154,8 +154,8 @@ main.box-container {
 	align-items: center;
 	width: 100%;
 	aspect-ratio: 1 / 1;
-	border: 1px solid #333;
-	background-color: antiquewhite;
+	border: 1px solid var(--color-black-3);
+	background-color: var(--color-sub-1);
 	font-size: 75px;
 }
 
@@ -189,7 +189,7 @@ main.box-container {
 	height: 35px;
 	font: 16px/1 'Poppins', 'arial';
 	border: 0;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid var(--color-black-3);
 	outline: none;
 	background-color: transparent;
 }
@@ -252,9 +252,9 @@ main.box-container {
 	height: 40px;
 	margin-left: 10px;
 	border-radius: 20px;
-	background-color: #222;
+	background-color: var(--color-black-2);
 	font: 14px/1 'Poppins';
-	color: #fff;
+	color: var(--color-white);
 	cursor: pointer;
 }
 
@@ -263,9 +263,9 @@ main.box-container {
 }
 
 #game.profile > main.box-container > .profile-form > .btns > button#playBtn {
-	color: #222;
+	color: var(--color-black-2);
 	font-weight: 600;
-	background-color: gold;
+	background-color: var(--color-main);
 }
 /* Profile : End */
 
@@ -279,7 +279,7 @@ main.box-container {
 
 #game.play > header > h1 {
 	margin: 30px 0;
-	font-family: 'Barrio', cursive;
+	font-family: var(--font-title);
 	font-size: 50px;
 	margin-bottom: 10px;
 }
@@ -311,9 +311,9 @@ main.box-container {
 	border: 1px solid #555;
 	margin-right: 10px;
 	font: 400 40px/1 'arial';
-	color: #333;
-	box-shadow: 3px 3px 0px #333;
-	background-color: #fae6e6;
+	color: var(--color-black-3);
+	box-shadow: 3px 3px 0px var(--color-black-3);
+	background-color: var(--color-sub-2);
 }
 
 #game.play > main > span.timer {
@@ -321,13 +321,13 @@ main.box-container {
 	top: 20px;
 	right: 20px;
 	z-index: 1;
-	font: 600 40px/1 'Barrio', cursive;
+	font: 600 40px/1 var(--font-title);
 }
 
 #game.play > main > #canvas {
 	width: 100%;
 	aspect-ratio: 1 / 1;
-	border: 1px solid #000;
+	border: 1px solid var(--color-black);
 	box-sizing: border-box;
 }
 
@@ -352,7 +352,7 @@ main.box-container {
 	cursor: pointer;
 	border: 0;
 	font-size: 20px;
-	color: #333;
+	color: var(--color-black-3);
 }
 
 #game.play > main > #canvas > ul.paint-tools > li > button.brush {
@@ -360,8 +360,8 @@ main.box-container {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	border: 2px solid #222;
-	box-shadow: 2px 2px 0px #333;
+	border: 2px solid var(--color-black-2);
+	box-shadow: 2px 2px 0px var(--color-black-3);
 	background-color: transparent;
 }
 
@@ -378,11 +378,11 @@ main.box-container {
 	display: flex;
 	justify-content: space-between;
 	height: calc(100% - 500px);
-	border: 1px solid #000;
+	border: 1px solid var(--color-black);
 	border-top: 0;
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: gold;
+	background-color: var(--color-main);
 }
 
 #game.play > main > .user-control > ul.user-profile {
@@ -401,20 +401,20 @@ main.box-container {
 	align-items: center;
 	width: 50px;
 	font-size: 35px;
-	border: 1px solid #222;
+	border: 1px solid var(--color-black-2);
 	border-radius: 10px;
-	background-color: #fae6e6;
+	background-color: var(--color-sub-2);
 }
 
 #game.play > main > .user-control > ul.user-profile > li.user-name,
 #game.play > main > .user-control > ul.user-profile > li.user-score {
 	width: 118px;
 	margin-left: 10px;
-	font: 500 18px/1 'Poppins', sans-serif;
-	color: #333;
+	font: 500 18px/1 var(--font-en);
+	color: var(--color-black-3);
 	box-sizing: border-box;
-	border: 1px solid #222;
-	background-color: #fff;
+	border: 1px solid var(--color-black-2);
+	background-color: var(--color-white);
 	border-radius: 10px;
 	text-align: center;
 	overflow: hidden;
@@ -429,9 +429,9 @@ main.box-container {
 	align-items: center;
 	width: 100%;
 	height: 20px;
-	font: 11px/1 'Poppins', sans-serif;
-	color: #fff;
-	background-color: #222;
+	font: 11px/1 var(--font-en);
+	color: var(--color-white);
+	background-color: var(--color-black-2);
 	letter-spacing: 1px;
 }
 
@@ -441,7 +441,7 @@ main.box-container {
 	align-items: center;
 	width: 100%;
 	height: calc(100% - 20px);
-	background-color: antiquewhite;
+	background-color: var(--color-sub-1);
 }
 
 #game.play > main > .user-control > ul.game-btns {
@@ -462,10 +462,10 @@ main.box-container {
 	position: relative;
 	z-index: 1;
 	height: 50px;
-	color: #fff;
-	font: 16px/1 'Poppins', sans-serif;
+	color: var(--color-white);
+	font: 16px/1 var(--font-en);
 	letter-spacing: 2px;
-	border: 1px solid #222;
+	border: 1px solid var(--color-black-2);
 	border-radius: 10px;
 	cursor: pointer;
 }
@@ -477,10 +477,10 @@ main.box-container {
 	align-items: center;
 	width: 50px;
 	height: 50px;
-	color: #222;
+	color: var(--color-black-2);
 	font-size: 22px;
 	padding-top: 2px;
-	background-color: antiquewhite;
+	background-color: var(--color-sub-1);
 }
 
 #game.play > main > .user-control > ul.game-btns > li > button.exit-btn:hover {
@@ -495,8 +495,8 @@ main.box-container {
 	height: 50px;
 	font-size: 26px;
 	color: coral;
-	background-color: antiquewhite;
-	-webkit-text-stroke: 1px #222;
+	background-color: var(--color-sub-1);
+	-webkit-text-stroke: 1px var(--color-black-2);
 }
 
 #game.play > main > .user-control > ul.game-btns > li > button.like-btn:hover {
@@ -505,7 +505,7 @@ main.box-container {
 
 #game.play > main > .user-control > ul.game-btns > li > button.start-btn {
 	width: 100px;
-	background-color: #222;
+	background-color: var(--color-black-2);
 }
 
 #game.play > main > .user-control > ul.game-btns > li > button.start-btn:hover {
@@ -539,7 +539,7 @@ main.box-container {
 	width: calc(50% - 10px);
 	height: 50px;
 	margin-bottom: 10px;
-	border: 1px solid #222;
+	border: 1px solid var(--color-black-2);
 	box-sizing: border-box;
 	border-radius: 10px;
 	overflow: hidden;
@@ -553,8 +553,8 @@ main.box-container {
 	display: block;
 	content: '\f521';
 	font-weight: 600;
-	color: gold;
-	-webkit-text-stroke: 2px #000;
+	color: var(--color-main);
+	-webkit-text-stroke: 2px var(--color-black);
 	font-family: 'Font Awesome 6 Free';
 }
 
@@ -571,7 +571,7 @@ main.box-container {
 	height: 14px;
 	background-color: darkslategrey;
 	border-radius: 2px;
-	color: #fff;
+	color: var(--color-white);
 	font: 400 8px/1 'Nanum Gothic', sans-serif;
 }
 
@@ -601,32 +601,32 @@ main.box-container {
 	align-items: center;
 	width: 50px;
 	box-sizing: border-box;
-	color: #222;
+	color: var(--color-black-2);
 	float: left;
 }
 
 #game.play > aside > .player-list > ul > li > span.player-avatar {
 	height: 100%;
-	border-right: 1px solid #222;
-	background-color: #fae6e6;
+	border-right: 1px solid var(--color-black-2);
+	background-color: var(--color-sub-2);
 	font-size: 30px;
 }
 
 #game.play > aside > .player-list > ul > li > span.player-username {
 	width: calc(100% - 50px);
 	height: 50%;
-	border-bottom: 1px solid #222;
-	font: 500 14px/1 'Poppins', sans-serif;
+	border-bottom: 1px solid var(--color-black-2);
+	font: 500 14px/1 var(--font-en);
 	padding: 0 5px;
-	background-color: gold;
+	background-color: var(--color-main);
 }
 
 #game.play > aside > .player-list > ul > li > span.player-score {
 	width: calc(100% - 50px);
 	height: 50%;
-	font: 500 14px/1 'Poppins', sans-serif;
+	font: 500 14px/1 var(--font-en);
 	padding: 0 5px;
-	background-color: antiquewhite;
+	background-color: var(--color-sub-1);
 	letter-spacing: 1px;
 }
 
@@ -635,8 +635,8 @@ main.box-container {
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	background-color: antiquewhite;
-	border: 1px solid #222;
+	background-color: var(--color-sub-1);
+	border: 1px solid var(--color-black-2);
 	border-radius: 10px;
 	overflow: hidden;
 	padding-top: 5px;
@@ -673,7 +673,7 @@ main.box-container {
 
 #game.play > aside > #chat > ul.chat-dialogue > li > .user-dialogue > span {
 	display: block;
-	font: 500 12px/1 'Poppins', sans-serif;
+	font: 500 12px/1 var(--font-en);
 	padding-top: 5px;
 	margin-bottom: 3px;
 }
@@ -687,9 +687,9 @@ main.box-container {
 	> p.dialogue-bubble {
 	position: relative;
 	height: auto;
-	border: 1px solid #222;
+	border: 1px solid var(--color-black-2);
 	border-radius: 10px;
-	background-color: #fff;
+	background-color: var(--color-white);
 	padding: 7px 10px;
 	box-sizing: border-box;
 	word-break: break-all;
@@ -712,7 +712,7 @@ main.box-container {
 
 #game.play > aside > #chat > ul.chat-dialogue::-webkit-scrollbar-thumb {
 	border-radius: 10px;
-	background-color: #222;
+	background-color: var(--color-black-2);
 	background-clip: padding-box;
 	border: 2px solid transparent;
 }
@@ -721,8 +721,8 @@ main.box-container {
 	display: flex;
 	width: 100%;
 	height: 45px;
-	background-color: #fff;
-	border-top: 1px solid #222;
+	background-color: var(--color-white);
+	border-top: 1px solid var(--color-black-2);
 }
 
 #game.play > aside > #chat > .chat-form > #chat-input {
@@ -739,8 +739,8 @@ main.box-container {
 	width: 45px;
 	height: 100%;
 	border: 0;
-	background-color: #222;
-	color: gold;
+	background-color: var(--color-black-2);
+	color: var(--color-main);
 	font-size: 20px;
 	cursor: pointer;
 }

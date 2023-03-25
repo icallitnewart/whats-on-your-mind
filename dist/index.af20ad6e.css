@@ -34,8 +34,8 @@ main.box-container {
   width: 500px;
   height: 400px;
   box-sizing: border-box;
+  border: 1px solid var(--color-black);
   background-color: #f7f3ed;
-  border: 1px solid #000;
   margin: 0 auto;
   padding: 30px;
   display: flex;
@@ -62,8 +62,8 @@ main.box-container {
 }
 
 #game.entry > header > h1 {
+  font-family: var(--font-title);
   margin: 30px 0 80px;
-  font-family: Barrio, cursive;
   font-size: 80px;
   transform: translateX(12px);
 }
@@ -90,25 +90,25 @@ main.box-container {
 #game.entry > header > nav > ul > li > button {
   width: 180px;
   height: 60px;
+  background-color: var(--color-black);
   cursor: pointer;
   letter-spacing: 1px;
-  color: #fff;
-  background-color: #000;
+  font-family: var(--font-en);
+  color: var(--color-white);
   border-width: 2px;
   border-radius: 100px;
-  font-family: Poppins, sans-serif;
   font-size: 20px;
 }
 
 #game.entry > header > nav > ul > li:first-child > button {
-  color: #000;
-  background-color: gold;
+  background-color: var(--color-main);
+  color: var(--color-black);
   font-weight: 600;
 }
 
 #game.entry > header > nav > ul > li > button:hover {
-  color: #000;
-  background-color: #faebd7;
+  background-color: var(--color-sub-1);
+  color: var(--color-black);
   font-weight: 600;
   transform: scale(1.1);
 }
@@ -125,8 +125,8 @@ main.box-container {
 #game.profile > main.box-container > .profile-image > .pic {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: #faebd7;
-  border: 1px solid #333;
+  border: 1px solid var(--color-black-3);
+  background-color: var(--color-sub-1);
   justify-content: center;
   align-items: center;
   font-size: 75px;
@@ -157,9 +157,9 @@ main.box-container {
 #game.profile > main.box-container > .profile-form > .username > input[type="text"] {
   max-width: 240px;
   height: 35px;
-  background-color: #0000;
   border: 0;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--color-black-3);
+  background-color: #0000;
   outline: none;
   font: 16px / 1 Poppins, arial;
 }
@@ -209,9 +209,9 @@ main.box-container {
 #game.profile > main.box-container > .profile-form > .btns > button {
   width: 100px;
   height: 40px;
-  color: #fff;
+  background-color: var(--color-black-2);
+  color: var(--color-white);
   cursor: pointer;
-  background-color: #222;
   border-radius: 20px;
   margin-left: 10px;
   font: 14px / 1 Poppins;
@@ -222,8 +222,8 @@ main.box-container {
 }
 
 #game.profile > main.box-container > .profile-form > .btns > button#playBtn {
-  color: #222;
-  background-color: gold;
+  color: var(--color-black-2);
+  background-color: var(--color-main);
   font-weight: 600;
 }
 
@@ -235,8 +235,8 @@ main.box-container {
 }
 
 #game.play > header > h1 {
+  font-family: var(--font-title);
   margin: 30px 0 10px;
-  font-family: Barrio, cursive;
   font-size: 50px;
 }
 
@@ -261,20 +261,20 @@ main.box-container {
 #game.play > main > ul.word > li {
   width: 40px;
   height: 40px;
-  color: #333;
-  background-color: #fae6e6;
+  color: var(--color-black-3);
+  box-shadow: 3px 3px 0px var(--color-black-3);
+  background-color: var(--color-sub-2);
   border: 1px solid #555;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
   font: 400 40px / 1 arial;
   display: flex;
-  box-shadow: 3px 3px #333;
 }
 
 #game.play > main > span.timer {
   z-index: 1;
-  font: 600 40px / 1 Barrio, cursive;
+  font: 600 40px / 1 var(--font-title);
   position: absolute;
   top: 20px;
   right: 20px;
@@ -283,8 +283,8 @@ main.box-container {
 #game.play > main > #canvas {
   width: 100%;
   aspect-ratio: 1 / 1;
+  border: 1px solid var(--color-black);
   box-sizing: border-box;
-  border: 1px solid #000;
 }
 
 #game.play > main > #canvas > .canvas-paper {
@@ -305,7 +305,7 @@ main.box-container {
 
 #game.play > main > #canvas > ul.paint-tools > li > button {
   cursor: pointer;
-  color: #333;
+  color: var(--color-black-3);
   background-color: #0000;
   border: 0;
   font-size: 20px;
@@ -314,11 +314,11 @@ main.box-container {
 #game.play > main > #canvas > ul.paint-tools > li > button.brush {
   width: 20px;
   height: 20px;
+  border: 2px solid var(--color-black-2);
+  box-shadow: 2px 2px 0px var(--color-black-3);
   background-color: #0000;
-  border: 2px solid #222;
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 2px 2px #333;
 }
 
 #game.play > main > #canvas > ul.paint-tools > li:not(.active):hover button {
@@ -332,9 +332,9 @@ main.box-container {
 
 #game.play > main > .user-control {
   height: calc(100% - 500px);
+  border: 1px solid var(--color-black);
   box-sizing: border-box;
-  background-color: gold;
-  border: 1px solid #000;
+  background-color: var(--color-main);
   border-top: 0;
   justify-content: space-between;
   padding: 10px;
@@ -353,8 +353,8 @@ main.box-container {
 
 #game.play > main > .user-control > ul.user-profile > li.user-image {
   width: 50px;
-  background-color: #fae6e6;
-  border: 1px solid #222;
+  border: 1px solid var(--color-black-2);
+  background-color: var(--color-sub-2);
   border-radius: 10px;
   justify-content: center;
   align-items: center;
@@ -364,33 +364,33 @@ main.box-container {
 
 #game.play > main > .user-control > ul.user-profile > li.user-name, #game.play > main > .user-control > ul.user-profile > li.user-score {
   width: 118px;
-  color: #333;
+  font: 500 18px / 1 var(--font-en);
+  color: var(--color-black-3);
   box-sizing: border-box;
+  border: 1px solid var(--color-black-2);
+  background-color: var(--color-white);
   text-align: center;
-  background-color: #fff;
-  border: 1px solid #222;
   border-radius: 10px;
   margin-left: 10px;
-  font: 500 18px / 1 Poppins, sans-serif;
   overflow: hidden;
 }
 
 #game.play > main > .user-control > ul.user-profile > li > span:nth-child(1) {
   width: 100%;
   height: 20px;
-  color: #fff;
+  font: 11px / 1 var(--font-en);
+  color: var(--color-white);
+  background-color: var(--color-black-2);
   letter-spacing: 1px;
-  background-color: #222;
   justify-content: center;
   align-items: center;
-  font: 11px / 1 Poppins, sans-serif;
   display: flex;
 }
 
 #game.play > main > .user-control > ul.user-profile > li > span:nth-child(2) {
   width: 100%;
   height: calc(100% - 20px);
-  background-color: #faebd7;
+  background-color: var(--color-sub-1);
   justify-content: center;
   align-items: center;
   display: flex;
@@ -413,12 +413,12 @@ main.box-container {
 #game.play > main > .user-control > ul.game-btns > li > button {
   z-index: 1;
   height: 50px;
-  color: #fff;
+  color: var(--color-white);
+  font: 16px / 1 var(--font-en);
   letter-spacing: 2px;
+  border: 1px solid var(--color-black-2);
   cursor: pointer;
-  border: 1px solid #222;
   border-radius: 10px;
-  font: 16px / 1 Poppins, sans-serif;
   position: relative;
 }
 
@@ -426,8 +426,8 @@ main.box-container {
   width: 50px;
   height: 50px;
   color: coral;
-  -webkit-text-stroke: 1px #222;
-  background-color: #faebd7;
+  background-color: var(--color-sub-1);
+  -webkit-text-stroke: 1px var(--color-black-2);
   justify-content: center;
   align-items: center;
   font-size: 26px;
@@ -440,7 +440,7 @@ main.box-container {
 
 #game.play > main > .user-control > ul.game-btns > li > button.start-btn {
   width: 100px;
-  background-color: #222;
+  background-color: var(--color-black-2);
 }
 
 #game.play > main > .user-control > ul.game-btns > li > button.start-btn:hover {
@@ -472,8 +472,8 @@ main.box-container {
 #game.play > aside > .player-list > ul > li {
   width: calc(50% - 10px);
   height: 50px;
+  border: 1px solid var(--color-black-2);
   box-sizing: border-box;
-  border: 1px solid #222;
   border-radius: 10px;
   margin-bottom: 10px;
   position: relative;
@@ -483,8 +483,8 @@ main.box-container {
 #game.play > aside > .player-list > ul > li.winner:before {
   z-index: 1;
   content: "";
-  color: gold;
-  -webkit-text-stroke: 2px #000;
+  color: var(--color-main);
+  -webkit-text-stroke: 2px var(--color-black);
   font-family: "Font Awesome 6 Free";
   font-weight: 600;
   display: block;
@@ -498,7 +498,7 @@ main.box-container {
   content: "방장";
   width: 20px;
   height: 14px;
-  color: #fff;
+  color: var(--color-white);
   background-color: #2f4f4f;
   border-radius: 2px;
   justify-content: center;
@@ -533,7 +533,7 @@ main.box-container {
 #game.play > aside > .player-list > ul > li > span {
   width: 50px;
   box-sizing: border-box;
-  color: #222;
+  color: var(--color-black-2);
   float: left;
   justify-content: center;
   align-items: center;
@@ -542,34 +542,34 @@ main.box-container {
 
 #game.play > aside > .player-list > ul > li > span.player-avatar {
   height: 100%;
-  background-color: #fae6e6;
-  border-right: 1px solid #222;
+  border-right: 1px solid var(--color-black-2);
+  background-color: var(--color-sub-2);
   font-size: 30px;
 }
 
 #game.play > aside > .player-list > ul > li > span.player-username {
   width: calc(100% - 50px);
   height: 50%;
-  background-color: gold;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--color-black-2);
+  font: 500 14px / 1 var(--font-en);
+  background-color: var(--color-main);
   padding: 0 5px;
-  font: 500 14px / 1 Poppins, sans-serif;
 }
 
 #game.play > aside > .player-list > ul > li > span.player-score {
   width: calc(100% - 50px);
   height: 50%;
+  font: 500 14px / 1 var(--font-en);
+  background-color: var(--color-sub-1);
   letter-spacing: 1px;
-  background-color: #faebd7;
   padding: 0 5px;
-  font: 500 14px / 1 Poppins, sans-serif;
 }
 
 #game.play > aside > #chat {
   width: 100%;
   height: 100%;
-  background-color: #faebd7;
-  border: 1px solid #222;
+  background-color: var(--color-sub-1);
+  border: 1px solid var(--color-black-2);
   border-radius: 10px;
   flex-direction: column;
   padding-top: 5px;
@@ -607,18 +607,18 @@ main.box-container {
 }
 
 #game.play > aside > #chat > ul.chat-dialogue > li > .user-dialogue > span {
+  font: 500 12px / 1 var(--font-en);
   margin-bottom: 3px;
   padding-top: 5px;
-  font: 500 12px / 1 Poppins, sans-serif;
   display: block;
 }
 
 #game.play > aside > #chat > ul.chat-dialogue > li > .user-dialogue > p.dialogue-bubble {
   height: auto;
+  border: 1px solid var(--color-black-2);
+  background-color: var(--color-white);
   box-sizing: border-box;
   word-break: break-all;
-  background-color: #fff;
-  border: 1px solid #222;
   border-radius: 10px;
   padding: 7px 10px;
   font: 13px / 1.5 Nanum Gothic, sans-serif;
@@ -631,7 +631,7 @@ main.box-container {
 }
 
 #game.play > aside > #chat > ul.chat-dialogue::-webkit-scrollbar-thumb {
-  background-color: #222;
+  background-color: var(--color-black-2);
   background-clip: padding-box;
   border: 2px solid #0000;
   border-radius: 10px;
@@ -640,8 +640,8 @@ main.box-container {
 #game.play > aside > #chat > .chat-form {
   width: 100%;
   height: 45px;
-  background-color: #fff;
-  border-top: 1px solid #222;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-black-2);
   display: flex;
 }
 
@@ -658,9 +658,9 @@ main.box-container {
 #game.play > aside > #chat > .chat-form > button {
   width: 45px;
   height: 100%;
-  color: gold;
+  background-color: var(--color-black-2);
+  color: var(--color-main);
   cursor: pointer;
-  background-color: #222;
   border: 0;
   font-size: 20px;
 }
