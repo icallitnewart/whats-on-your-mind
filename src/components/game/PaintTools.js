@@ -21,9 +21,11 @@ export default class PaintTools extends Component {
 
       if (type === 'brush') {
         btn.style.backgroundColor = color;
+        btn.setAttribute('color', color);
+        if (color === 'black') li.classList.add('active');
       } else {
         const icon = document.createElement('i');
-        icon.classList = type === 'eraser'
+        icon.classList = (type === 'eraser')
           ? 'fa-solid fa-eraser'
           : 'fa-solid fa-rotate-right';
         btn.append(icon);

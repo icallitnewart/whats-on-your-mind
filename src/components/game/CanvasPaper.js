@@ -1,7 +1,13 @@
 import { Component } from "../../core";
 
 export default class CanvasPaper extends Component {
+  constructor() {
+    super({
+      tagName: 'canvas'
+    });
+  }
+
   render() {
-    this.element.classList.add('canvas-paper');
+    this.element.setAttribute('id', 'canvas');
   }
 }

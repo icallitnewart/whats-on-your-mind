@@ -310,6 +310,7 @@ main.box-container {
 	position: relative;
 	width: 500px;
 	height: calc(100% - 97px);
+	font-size: 0;
 }
 
 #game.play > main > ul.word {
@@ -342,30 +343,30 @@ main.box-container {
 	font: 600 40px/1 var(--font-title);
 }
 
-#game.play > main > #canvas {
+#game.play > main > .canvas-container {
 	width: 100%;
 	aspect-ratio: 1 / 1;
 	border: 1px solid var(--color-black);
 	box-sizing: border-box;
 }
 
-#game.play > main > #canvas > .canvas-paper {
+#game.play > main > .canvas-container > #canvas {
 	width: 100%;
 	height: calc(100% - 45px);
 }
 
-#game.play > main > #canvas > ul.paint-tools {
+#game.play > main > .canvas-container > ul.paint-tools {
 	display: flex;
 	justify-content: center;
 	width: 100%;
 	height: 46px;
 }
 
-#game.play > main > #canvas > ul.paint-tools > li {
+#game.play > main > .canvas-container > ul.paint-tools > li {
 	margin: 0px 7px;
 }
 
-#game.play > main > #canvas > ul.paint-tools > li > button {
+#game.play > main > .canvas-container > ul.paint-tools > li > button {
 	background-color: transparent;
 	cursor: pointer;
 	border: 0;
@@ -373,7 +374,7 @@ main.box-container {
 	color: var(--color-black-3);
 }
 
-#game.play > main > #canvas > ul.paint-tools > li > button.brush {
+#game.play > main > .canvas-container > ul.paint-tools > li > button.brush {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -383,13 +384,28 @@ main.box-container {
 	background-color: transparent;
 }
 
-#game.play > main > #canvas > ul.paint-tools > li:not(.active):hover button {
+#game.play
+	> main
+	> .canvas-container
+	> ul.paint-tools
+	> li:not(.active):hover
+	button {
 	transform: scale(1.2);
 }
 
-#game.play > main > #canvas > ul.paint-tools > li.active button {
+#game.play > main > .canvas-container > ul.paint-tools > li.active button {
 	box-shadow: none;
 	transform: translate(2px, 2px);
+}
+
+#game.play
+	> main
+	> .canvas-container
+	> ul.paint-tools
+	> li.active
+	button.eraser {
+	transform: scale(1.2);
+	color: skyblue;
 }
 
 #game.play > main > .user-control {
