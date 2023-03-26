@@ -1,7 +1,7 @@
 import { Component } from "../../core";
 import CanvasPaper from "./CanvasPaper";
 import PaintTools from "./PaintTools";
-import PaintCanvas from "../utils/PaintCanvas";
+import PaintCanvas from "../../utils/PaintCanvas";
 
 export default class DrawingCanvas extends Component {
   constructor() {
