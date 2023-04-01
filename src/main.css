@@ -73,27 +73,14 @@ main.box-container {
 	margin: 30px 0;
 	font-family: var(--font-title);
 	font-size: 80px;
-	/* transition: all 0.5s; */
 	margin-bottom: 80px;
 	transform: translateX(12px);
 }
-/*
-#game.entry > header > h1:hover {
-	margin: 0;
-	transform: scale(0.5);
-	transform-origin: left top;
-}
-
-#game.entry > header > h1:hover span {
-	opacity: 0;
-}
-*/
 
 #game.entry > header > h1 > span {
 	display: block;
 	font-size: 30px;
 	transform: rotate(-10deg) translate(-30px, -30px);
-	/* transition: opacity 0.3s; */
 }
 
 #game.entry > header > nav > ul {
@@ -286,6 +273,117 @@ main.box-container {
 	background-color: var(--color-main);
 }
 /* Profile : End */
+
+/* Rooms : Start */
+#game.rooms > header > h1 {
+	margin-bottom: 40px;
+}
+
+#game.rooms > main {
+	height: auto;
+	min-height: 400px;
+	flex-direction: column;
+}
+
+#game.rooms > main > h2 {
+	padding: 5px;
+	font: 700 30px/1 var(--font-en);
+	text-align: center;
+	letter-spacing: 4px;
+	color: var(--color-main);
+	-webkit-text-stroke: var(--color-black-2) 1px;
+}
+
+#game.rooms > main > .room-list {
+	display: flex;
+	width: 100%;
+	padding: 20px;
+	min-height: 230px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+
+#game.rooms > main > .room-list > p {
+	align-self: center;
+	margin: 0 auto;
+	font: 500 18px/1 var(--font-en);
+	color: #888;
+	letter-spacing: 1px;
+}
+
+#game.rooms > main > .room-list > ul {
+	width: 100%;
+	height: 100%;
+	padding: 0px 20px;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+#game.rooms > main > .room-list > ul > li {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+	padding: 0px 15px;
+	box-sizing: border-box;
+	border-bottom: 1px solid var(--color-black-2);
+	cursor: pointer;
+
+	font: 400 16px/1 var(--font-en), var(--font-ko);
+	letter-spacing: 1px;
+	color: var(--color-black-2);
+}
+
+#game.rooms > main > .room-list > ul > li:hover,
+#game.rooms > main > .room-list > ul > li.active {
+	font-weight: 600;
+}
+
+#game.rooms > main > .room-list > ul > li:hover::before,
+#game.rooms > main > .room-list > ul > li.active::before {
+	display: inline-block;
+	content: '✔';
+	letter-spacing: 2px;
+	font-size: 18px;
+	margin-right: 4px;
+	color: var(--color-main);
+	-webkit-text-stroke: var(--color-black-2) 0.5px;
+}
+
+#game.rooms > main > .btns {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0px 40px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+#game.rooms > main > .btns > button {
+	padding: 0px 20px;
+	height: 40px;
+	background-color: var(--color-black-2);
+	color: var(--color-main);
+	cursor: pointer;
+	border-radius: 20px;
+	letter-spacing: 1px;
+	font: 400 14px / 1 var(--font-en);
+}
+
+#game.rooms > main > .btns > button#enterBtn {
+	width: 100px;
+	background-color: var(--color-main);
+	color: var(--color-black-2);
+	font-weight: 600;
+}
+
+#game.rooms > main > .btns > button#enterBtn:disabled {
+	background-color: #888;
+	color: var(--color-white);
+	font-weight: 400;
+}
+/* Rooms : End */
 
 /* Game : Start */
 #game.play {
