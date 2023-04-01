@@ -3,7 +3,8 @@ import { enterRoom } from "../utils/socket";
 
 const roomStore = new Store({
   roomName: '',
-  isEnter: false
+  isEnter: false,
+  userList: []
 });
 
 export default roomStore;

@@ -13,6 +13,9 @@ const io = SocketIo(server, {
 
 io.on('connection', socket => {
   socket['username'] = 'anonymous';
+  socket.onAny(event => {
+    console.log(`socket event: ${event}`);
+  });
 
   //유저 프로필 설정
   socket.on('set_profile', (username, avatar, done) => {
@@ -25,6 +28,10 @@ io.on('connection', socket => {
   socket.on('enter_room', (roomName, done) => {
     socket.join(roomName);
     done();
+    //console.log(io.sockets.adapter.rooms.get(roomName));
+
+    //유저 입장 알리기
+    io.to(roomName).emit('welcome', socket.username, socket.avatar);
   });
 });
 

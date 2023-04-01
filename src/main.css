@@ -797,6 +797,20 @@ main.box-container {
 	margin-bottom: 10px;
 }
 
+#game.play > aside > #chat > ul.chat-dialogue > li.notification {
+	display: flex;
+	justify-content: center;
+	margin: 5px 0px;
+}
+
+#game.play > aside > #chat > ul.chat-dialogue > li.notification > span {
+	font: 500 12px/1 var(--font-en);
+	color: var(--color-white);
+	padding: 5px 6px;
+	background-color: #666;
+	border-radius: 8px;
+}
+
 #game.play > aside > #chat > ul.chat-dialogue > li > .user-profile-image {
 	display: flex;
 	justify-content: center;
