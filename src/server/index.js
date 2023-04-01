@@ -12,7 +12,13 @@ const io = SocketIo(server, {
 });
 
 io.on('connection', socket => {
-  console.log(socket);
+  //방 입장
+  socket.on('enter_room', (roomName, done) => {
+    socket.join(roomName);
+    done();
+  });
+
+
 });
 
 server.listen(port, () => console.log(`listening on port ${port}!`));

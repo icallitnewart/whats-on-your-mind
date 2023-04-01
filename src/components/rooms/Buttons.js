@@ -1,5 +1,5 @@
 import { Component } from "../../core";
-import roomStore from "../../store/room";
+import roomStore, { createRoom } from "../../store/room";
 
 export default class Buttons extends Component {
   constructor() {
@@ -21,5 +21,9 @@ export default class Buttons extends Component {
   }
 
   handleEvent() {
+    const newRoomBtn = this.element.querySelector('#newRoomBtn');
+    const enterBtn = this.element.querySelector('#enterBtn');
+
+    newRoomBtn.addEventListener('click', createRoom);
   }
 }
