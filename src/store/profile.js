@@ -1,4 +1,5 @@
 import { Store } from "../core";
+import { setProfile } from "../utils/socket";
 
 const profileStore = new Store({
   username: '',
@@ -19,7 +20,9 @@ export const checkErrorBeforeSubmit = () => {
     }
     //submit 성공
     state.error = null;
-    location.href = '#/game';
+    setProfile(state.username, state.avatar, () => {
+      location.href = '#/rooms';
+    });
   } else {
     state.error = '빈칸을 입력해 주세요.';
   }
