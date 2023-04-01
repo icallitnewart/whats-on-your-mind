@@ -361,7 +361,7 @@ main.box-container {
 }
 
 #game.rooms > main > .btns > button {
-	padding: 0px 20px;
+	width: 130px;
 	height: 40px;
 	background-color: var(--color-black-2);
 	color: var(--color-main);
@@ -371,6 +371,14 @@ main.box-container {
 	font: 400 14px / 1 var(--font-en);
 }
 
+#game.rooms > main > .btns > button:not([disabled='true']) {
+	border: 2px solid var(--color-black-2);
+}
+
+#game.rooms > main > .btns > button:not([disabled='true']):hover {
+	font-size: 15px;
+}
+
 #game.rooms > main > .btns > button#enterBtn {
 	width: 100px;
 	background-color: var(--color-main);
@@ -378,7 +386,7 @@ main.box-container {
 	font-weight: 600;
 }
 
-#game.rooms > main > .btns > button#enterBtn:disabled {
+#game.rooms > main > .btns > button#enterBtn[disabled='true'] {
 	background-color: #888;
 	color: var(--color-white);
 	font-weight: 400;

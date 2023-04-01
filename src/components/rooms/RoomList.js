@@ -1,6 +1,13 @@
 import { Component } from "../../core";
+import roomStore from "../../store/room";
 
 export default class RoomList extends Component {
+  constructor() {
+    super();
+    this.handleEvent();
+    roomStore.state.roomName = '';
+  }
+
   render() {
     const roomNames = ['room1', 'room2', 'room3'];
     this.element.classList.add('room-list');
@@ -19,5 +26,20 @@ export default class RoomList extends Component {
         ...rooms
       );
     }
+  }
+
+  handleEvent() {
+    const rooms = this.element.querySelectorAll('.room-list ul li');
+
+    const selectRoom = (e) => {
+      const target = e.currentTarget;
+      rooms.forEach(room => room.classList.remove('active'));
+      target.classList.add('active');
+
+      const roomName = target.dataset.name;
+      roomStore.state.roomName = roomName;
+    }
+
+    rooms.forEach(room => room.addEventListener('click', selectRoom));
   }
 }
