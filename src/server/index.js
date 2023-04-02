@@ -33,6 +33,18 @@ io.on('connection', socket => {
     //유저 입장 알리기
     io.to(roomName).emit('welcome', socket.username, socket.avatar);
   });
+
+  //메시지 보내기
+  socket.on('new_message', (msg, roomName, done) => {
+    io.to(roomName).emit('update_message',
+      {
+        username: socket.username,
+        avatar: socket.avatar
+      },
+      msg
+    );
+    done();
+  });
 });
 
 server.listen(port, () => console.log(`listening on port ${port}!`));

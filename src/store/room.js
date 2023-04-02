@@ -14,6 +14,7 @@ export function createRoom() {
 
   if (roomName) {
     enterRoom(roomName, () => {
+      roomStore.state.roomName = roomName;
       roomStore.state.isEnter = true;
       location.href = '/#/game';
     });
