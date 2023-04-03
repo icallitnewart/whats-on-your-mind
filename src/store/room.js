@@ -1,10 +1,16 @@
 import { Store } from "../core";
-import { enterRoom } from "../utils/socket";
+import { enterRoom, leaveRoom } from "../utils/socket";
 
 const roomStore = new Store({
   roomName: '',
   isEnter: false,
-  userList: []
+  userList: [],
+  userListUpdate: {
+    id: '',
+    username: '',
+    avatar: '',
+    isEnter: null
+  }
 });
 
 export default roomStore;
@@ -21,4 +27,14 @@ export function createRoom() {
   } else {
     alert('방 이름을 입력하셔야 합니다.');
   }
+}
+
+export function exitRoom() {
+  const state = roomStore.state;
+  //room state 초기화
+  state.isEnter = false;
+  state.roomName = '';
+  state.userList = [];
+  state.userListUpdate = {};
+  console.log(state);
 }

@@ -1,4 +1,4 @@
-import roomStore from "../store/room";
+import roomStore, { exitRoom } from "../store/room";
 import chatStore from "../store/chat";
 
 const socket = io('http://localhost:5005');
@@ -11,15 +11,36 @@ export function enterRoom(roomName, done) {
   socket.emit('enter_room', roomName, done);
 }
 
+export function leaveRoom() {
+  socket.on('leave_room', exitRoom);
+}
+
 export function updateUserList() {
-  socket.on('welcome', (username, avatar) => {
+  //유저 입장
+  socket.on('welcome', user => {
     setTimeout(() => {
+      const { id, username, avatar } = user;
       const state = roomStore.state;
       state.isEnter = true;
       state.userList = [
         ...state.userList,
-        { username, avatar }
+        { id, username, avatar }
       ];
+      state.userListUpdate = {
+        id, username, avatar, isEnter: true
+      };
+    }, 0);
+  });
+
+  //유저 퇴장
+  socket.on('goodbye', user => {
+    setTimeout(() => {
+      const { id, username, avatar } = user;
+      const state = roomStore.state;
+      state.userList = state.userList.filter(user => user.id !== id);
+      state.userListUpdate = {
+        id, username, avatar, isEnter: false
+      };
     }, 0);
   });
 }

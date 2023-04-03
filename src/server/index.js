@@ -31,7 +31,12 @@ io.on('connection', socket => {
     //console.log(io.sockets.adapter.rooms.get(roomName));
 
     //유저 입장 알리기
-    io.to(roomName).emit('welcome', socket.username, socket.avatar);
+    const user = {
+      id: socket.id,
+      username: socket.username,
+      avatar: socket.avatar,
+    }
+    io.to(roomName).emit('welcome', user);
   });
 
   //메시지 보내기
@@ -44,6 +49,22 @@ io.on('connection', socket => {
       msg
     );
     done();
+  });
+
+  //퇴장 알리기
+  socket.on('disconnecting', () => {
+    const user = {
+      id: socket.id,
+      username: socket.username,
+      avatar: socket.avatar,
+    };
+    socket.rooms.forEach(room => socket.to(room).emit('goodbye', user));
+  });
+
+  //퇴장하기
+  socket.on('disconnect', () => {
+    //추후 적용
+    //socket.emit('leave_room');
   });
 });
 

@@ -2,7 +2,7 @@ import { Component } from "../core";
 import Header from "../components/game/Header";
 import Main from "../components/game/Main";
 import Aside from "../components/game/Aside";
-import { updateUserList, addMessage } from "../utils/socket";
+import { updateUserList, addMessage, leaveRoom } from "../utils/socket";
 
 export default class Game extends Component {
   constructor() {
@@ -10,6 +10,7 @@ export default class Game extends Component {
     this.handleEvent();
     updateUserList();
     addMessage();
+    leaveRoom();
   }
 
   render() {

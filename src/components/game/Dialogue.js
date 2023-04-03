@@ -8,12 +8,11 @@ export default class Dialogue extends Component {
       tagName: 'ul'
     });
 
-    roomStore.subscribe('userList', () => {
-      const { userList } = roomStore.state;
-      const newUser = userList[userList.length - 1];
+    roomStore.subscribe('userListUpdate', () => {
+      const { userListUpdate } = roomStore.state;
       const newState = {
         type: 'notification',
-        ...newUser
+        ...userListUpdate
       };
       this.render(newState);
     });
@@ -33,34 +32,34 @@ export default class Dialogue extends Component {
     this.element.classList.add('chat-dialogue');
 
     if (newState) {
-      const { username, avatar, msg } = newState;
+      const { type, username, avatar, msg, isEnter } = newState;
       const li = document.createElement('li');
 
-      switch (newState.type) {
-        case 'notification':
-          const span = document.createElement('span');
-          li.classList.add('notification');
-          span.innerText = `${avatar} ${username}님이 입장하셨습니다👏🏻`;
-          li.append(span);
-          this.element.append(li);
-          break;
-
-        case 'message':
-          const html = `
-              <div class="user-profile-image">
-              ${avatar}
-              </div>
-              <div class="user-dialogue">
-                <span>${username}</span>
-                <p class="dialogue-bubble">
-                  ${msg}
-                </p>
-              </div>
-            `;
-          li.innerHTML = html;
-          this.element.append(li);
-          break;
+      if (type === 'notification') {
+        const span = document.createElement('span');
+        const msg = {
+          enter: `${avatar} ${username}님이 입장하셨습니다👏🏻`,
+          leave: `${avatar} ${username}님이 퇴장하셨습니다😢`
+        };
+        li.classList.add('notification');
+        span.innerText = isEnter ? msg.enter : msg.leave;
+        li.append(span);
+      } else if (type === 'message') {
+        const html = `
+        <div class="user-profile-image">
+        ${avatar}
+        </div>
+        <div class="user-dialogue">
+          <span>${username}</span>
+          <p class="dialogue-bubble">
+            ${msg}
+          </p>
+        </div>
+      `;
+        li.innerHTML = html;
       }
+
+      this.element.append(li);
     }
   }
 }
