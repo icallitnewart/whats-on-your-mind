@@ -7,46 +7,60 @@ export default class Dialogue extends Component {
     super({
       tagName: 'ul'
     });
+
     roomStore.subscribe('userList', () => {
-      this.render();
+      const { userList } = roomStore.state;
+      const newUser = userList[userList.length - 1];
+      const newState = {
+        type: 'notification',
+        ...newUser
+      };
+      this.render(newState);
     });
+
     chatStore.subscribe('chats', () => {
-      this.render();
+      const { chats } = chatStore.state;
+      const newChat = chats[chats.length - 1];
+      const newState = {
+        type: 'message',
+        ...newChat
+      };
+      this.render(newState);
     });
   }
 
-  render() {
-    /* 수정 필요!! */
-    this.element.innerHTML = '';
+  render(newState) {
     this.element.classList.add('chat-dialogue');
 
-    const newNotification = roomStore.state.userList.map(user => {
+    if (newState) {
+      const { username, avatar, msg } = newState;
       const li = document.createElement('li');
-      const span = document.createElement('span');
-      li.classList.add('notification');
-      span.innerText = `${user.avatar} ${user.username}님이 입장하셨습니다 👏🏻`;
-      li.append(span);
-      return li;
-    });
-    if (roomStore.state.userList.length > 0) this.element.append(...newNotification);
 
+      switch (newState.type) {
+        case 'notification':
+          const span = document.createElement('span');
+          li.classList.add('notification');
+          span.innerText = `${avatar} ${username}님이 입장하셨습니다👏🏻`;
+          li.append(span);
+          this.element.append(li);
+          break;
 
-    const chatBubbles = chatStore.state.chats.map(chat => {
-      const li = document.createElement('li');
-      const html = `
-        <div class="user-profile-image">
-        ${chat.avatar}
-        </div>
-        <div class="user-dialogue">
-          <span>${chat.username}</span>
-          <p class="dialogue-bubble">
-            ${chat.msg}
-          </p>
-        </div>
-      `;
-      li.innerHTML = html;
-      return li;
-    });
-    if (chatStore.state.chats.length > 0) this.element.append(...chatBubbles);
+        case 'message':
+          const html = `
+              <div class="user-profile-image">
+              ${avatar}
+              </div>
+              <div class="user-dialogue">
+                <span>${username}</span>
+                <p class="dialogue-bubble">
+                  ${msg}
+                </p>
+              </div>
+            `;
+          li.innerHTML = html;
+          this.element.append(li);
+          break;
+      }
+    }
   }
 }

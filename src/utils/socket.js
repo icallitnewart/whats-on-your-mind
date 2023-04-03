@@ -1,6 +1,6 @@
 import roomStore from "../store/room";
 import chatStore from "../store/chat";
-import profileStore from "../store/profile";
+
 const socket = io('http://localhost:5005');
 
 export function setProfile(username, avatar, done) {
@@ -11,7 +11,7 @@ export function enterRoom(roomName, done) {
   socket.emit('enter_room', roomName, done);
 }
 
-export const notifyEntry = () => {
+export function updateUserList() {
   socket.on('welcome', (username, avatar) => {
     setTimeout(() => {
       const state = roomStore.state;
@@ -25,7 +25,7 @@ export const notifyEntry = () => {
 }
 
 //메시지 입력
-export const submitMessage = (msg) => {
+export function submitMessage(msg) {
   const state = roomStore.state;
   socket.emit('new_message', msg, state.roomName, () => {
     //수정 필요
@@ -39,8 +39,8 @@ export const submitMessage = (msg) => {
   });
 };
 
-//메시지 업데이트
-export const addMessage = () => {
+//채팅창에 메시지 업데이트
+export function addMessage() {
   socket.on('update_message', (profile, msg) => {
     const state = chatStore.state;
     const newChat = {
