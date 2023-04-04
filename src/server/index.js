@@ -15,8 +15,10 @@ function getRoomList() {
   const { sids, rooms } = io.sockets.adapter;
   const publicRooms = [];
   rooms.forEach((v, k) => {
-    !sids.get(k) &&
-      publicRooms.push({ name: k, id: [...v][0] });
+    if (!sids.get(k)) {
+      const [name, id] = k.split('?id=');
+      publicRooms.push({ name, id });
+    }
   });
   return publicRooms;
 }
@@ -35,8 +37,8 @@ io.on('connection', socket => {
   });
 
   //방 입장
-  socket.on('enter_room', (roomName, done) => {
-    socket.join(roomName);
+  socket.on('enter_room', (room, done) => {
+    socket.join(room);
     done();
     //console.log(io.sockets.adapter.rooms.get(roomName));
 
@@ -46,7 +48,7 @@ io.on('connection', socket => {
       username: socket.username,
       avatar: socket.avatar,
     }
-    io.to(roomName).emit('welcome', user);
+    io.to(room).emit('welcome', user);
   });
 
   //메시지 보내기

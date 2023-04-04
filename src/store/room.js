@@ -1,8 +1,11 @@
+import { v4 as uuid } from "uuid";
 import { Store } from "../core";
 import { enterRoom, leaveRoom } from "../utils/socket";
 
 const roomStore = new Store({
+  room: '',
   roomName: '',
+  roomId: '',
   isEnter: false,
   userList: [],
   userListUpdate: {
@@ -16,20 +19,32 @@ const roomStore = new Store({
 
 export default roomStore;
 
+//새로운 방 생성
 export function createRoom() {
   const roomName = prompt('방 이름을 입력해 주세요.');
 
   if (roomName) {
-    enterRoom(roomName, () => {
-      roomStore.state.roomName = roomName;
-      roomStore.state.isEnter = true;
-      location.href = '/#/game';
-    });
+    const roomId = uuid();
+    joinRoom(roomName, roomId);
   } else {
     alert('방 이름을 입력하셔야 합니다.');
   }
 }
 
+//방 입장
+export function joinRoom(roomName, roomId) {
+  const room = `${roomName}?id=${roomId}`;
+
+  enterRoom(room, () => {
+    roomStore.state.room = room;
+    roomStore.state.roomName = roomName;
+    roomStore.state.roomId = roomId;
+    roomStore.state.isEnter = true;
+    location.href = '/#/game';
+  });
+}
+
+//방 목록 보여주기
 export function publicRooms(rooms) {
   roomStore.state.roomList = rooms;
 }

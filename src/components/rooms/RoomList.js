@@ -1,25 +1,30 @@
 import { Component } from "../../core";
-import roomStore from "../../store/room";
+import roomStore, { joinRoom } from "../../store/room";
 import { getRoomList } from "../../utils/socket";
 
 export default class RoomList extends Component {
   constructor() {
     super();
-    this.handleEvent();
     getRoomList();
-    roomStore.state.roomName = '';
-    roomStore.subscribe('roomList', () => this.render());
+    this.handleEvent();
+    // roomStore.state.room = '';
+    // roomStore.state.roomName = '';
+    // roomStore.state.roomId = '';
+    roomStore.subscribe('roomList', () => {
+      this.render();
+      this.handleEvent();
+    });
   }
 
   render() {
-    const roomNames = roomStore.state.roomList;
+    const roomList = roomStore.state.roomList;
     this.element.classList.add('room-list');
-    this.element.innerHTML = roomNames.length > 0
+    this.element.innerHTML = roomList.length > 0
       ? `<ul></ul>`
       : `<p>Nobody's playing now. . .😢</p>`;
 
-    if (roomNames.length > 0) {
-      const rooms = roomNames.map(room => {
+    if (roomList.length > 0) {
+      const rooms = roomList.map(room => {
         const li = document.createElement('li');
         li.setAttribute('data-id', room.id);
         li.innerText = room.name;
@@ -31,14 +36,14 @@ export default class RoomList extends Component {
 
   handleEvent() {
     const rooms = this.element.querySelectorAll('.room-list ul li');
-
     const selectRoom = (e) => {
       const target = e.currentTarget;
       rooms.forEach(room => room.classList.remove('active'));
       target.classList.add('active');
 
-      const roomName = target.dataset.name;
-      roomStore.state.roomName = roomName;
+      const roomName = target.innerText;
+      const roomId = target.dataset.id;
+      joinRoom(roomName, roomId);
     }
 
     rooms.forEach(room => room.addEventListener('click', selectRoom));

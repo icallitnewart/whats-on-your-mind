@@ -7,8 +7,8 @@ export function setProfile(username, avatar, done) {
   socket.emit('set_profile', username, avatar, done);
 }
 
-export function enterRoom(roomName, done) {
-  socket.emit('enter_room', roomName, done);
+export function enterRoom(room, done) {
+  socket.emit('enter_room', room, done);
 }
 
 export function leaveRoom() {
@@ -48,7 +48,7 @@ export function updateUserList() {
 //메시지 입력
 export function submitMessage(msg) {
   const state = roomStore.state;
-  socket.emit('new_message', msg, state.roomName, () => {
+  socket.emit('new_message', msg, state.room, () => {
     //수정 필요
     // const state = chatStore.state;
     // const newChat = {
@@ -73,6 +73,7 @@ export function addMessage() {
   })
 }
 
+//방 목록 생성
 export function getRoomList() {
   socket.emit('get_rooms');
   socket.on('rooms', publicRooms);
