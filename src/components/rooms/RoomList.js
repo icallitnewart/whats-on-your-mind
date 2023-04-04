@@ -1,15 +1,18 @@
 import { Component } from "../../core";
 import roomStore from "../../store/room";
+import { getRoomList } from "../../utils/socket";
 
 export default class RoomList extends Component {
   constructor() {
     super();
     this.handleEvent();
+    getRoomList();
     roomStore.state.roomName = '';
+    roomStore.subscribe('roomList', () => this.render());
   }
 
   render() {
-    const roomNames = ['room1', 'room2', 'room3'];
+    const roomNames = roomStore.state.roomList;
     this.element.classList.add('room-list');
     this.element.innerHTML = roomNames.length > 0
       ? `<ul></ul>`
@@ -18,13 +21,11 @@ export default class RoomList extends Component {
     if (roomNames.length > 0) {
       const rooms = roomNames.map(room => {
         const li = document.createElement('li');
-        li.setAttribute('data-name', room);
-        li.innerText = room;
+        li.setAttribute('data-id', room.id);
+        li.innerText = room.name;
         return li;
       });
-      this.element.querySelector('ul').append(
-        ...rooms
-      );
+      this.element.querySelector('ul').append(...rooms);
     }
   }
 

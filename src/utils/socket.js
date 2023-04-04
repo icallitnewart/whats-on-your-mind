@@ -1,4 +1,4 @@
-import roomStore, { exitRoom } from "../store/room";
+import roomStore, { exitRoom, publicRooms } from "../store/room";
 import chatStore from "../store/chat";
 
 const socket = io('http://localhost:5005');
@@ -71,4 +71,9 @@ export function addMessage() {
     };
     state.chats = [...state.chats, newChat];
   })
+}
+
+export function getRoomList() {
+  socket.emit('get_rooms');
+  socket.on('rooms', publicRooms);
 }

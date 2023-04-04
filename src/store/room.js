@@ -10,7 +10,8 @@ const roomStore = new Store({
     username: '',
     avatar: '',
     isEnter: null
-  }
+  },
+  roomList: []
 });
 
 export default roomStore;
@@ -27,6 +28,10 @@ export function createRoom() {
   } else {
     alert('방 이름을 입력하셔야 합니다.');
   }
+}
+
+export function publicRooms(rooms) {
+  roomStore.state.roomList = rooms;
 }
 
 export function exitRoom() {

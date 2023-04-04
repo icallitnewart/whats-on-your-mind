@@ -11,6 +11,16 @@ const io = SocketIo(server, {
   }
 });
 
+function getRoomList() {
+  const { sids, rooms } = io.sockets.adapter;
+  const publicRooms = [];
+  rooms.forEach((v, k) => {
+    !sids.get(k) &&
+      publicRooms.push({ name: k, id: [...v][0] });
+  });
+  return publicRooms;
+}
+
 io.on('connection', socket => {
   socket['username'] = 'anonymous';
   socket.onAny(event => {
@@ -63,8 +73,17 @@ io.on('connection', socket => {
 
   //퇴장하기
   socket.on('disconnect', () => {
+    //방 목록 업데이트
+    // io.sockets.emit('room_change', publicRooms);
+
     //추후 적용
     //socket.emit('leave_room');
+  });
+
+  //방 목록 가져오기
+  socket.on('get_rooms', () => {
+    const roomList = getRoomList();
+    socket.emit('rooms', roomList);
   });
 });
 
