@@ -1,4 +1,5 @@
 import { Component } from "../../core";
+import roomStore from "../../store/room";
 
 export default class PlayerList extends Component {
   render() {
@@ -7,31 +8,20 @@ export default class PlayerList extends Component {
       <ul></ul>
     `;
 
-    const test = [
-      {
-        avatar: '🐺',
-        username: 'John',
-        score: 0
-      },
-      {
-        avatar: '🐨',
-        username: 'Jane',
-        score: 0
-      }
-    ];
+    const addPlayer = (player) => {
+      const { avatar, username, score } = player;
+      const li = document.createElement('li');
 
-    const players = test.map(player => {
-      const html = `
-        <li>
-          <span class="player-avatar">${player.avatar}</span>
-          <span class="player-username">${player.username}</span>
-          <span class="player-score">${player.score}</span>
-        </li>
-      `;
+      [{ avatar }, { username }, { score }].forEach(el => {
+        const span = document.createElement('span');
+        span.classList.add(`player-${Object.keys(el)[0]}`);
+        span.innerText = Object.values(el)[0];
+        li.append(span);
+      });
+      return li;
+    }
 
-      return html;
-    });
-
-    this.element.querySelector('ul').innerHTML = players.join('');
+    const players = roomStore.state.userList.map(addPlayer);
+    if (players.length > 0) this.element.querySelector('ul').append(...players);
   }
 }

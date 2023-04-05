@@ -36,6 +36,7 @@ io.on('connection', socket => {
       id: socket.id,
       username: socket.username,
       avatar: socket.avatar,
+      score: 0
     };
 
     //입장한 방에 유저 정보 업데이트
@@ -85,6 +86,13 @@ io.on('connection', socket => {
       return { name, id };
     });
     socket.emit('rooms', roomList);
+  });
+
+  //방에 속한 유저 정보 가져오기
+  socket.on('get_users', (room) => {
+    for (const [r, users] of Object.entries(rooms)) {
+      if (r === room) socket.emit('users', users);
+    }
   });
 });
 

@@ -2,7 +2,8 @@ import { Component } from "../core";
 import Header from "../components/game/Header";
 import Main from "../components/game/Main";
 import Aside from "../components/game/Aside";
-import { updateUserList, addMessage, leaveRoom } from "../utils/socket";
+import { updateUserList, addMessage, leaveRoom, getUserList } from "../utils/socket";
+import roomStore from "../store/room";
 
 export default class Game extends Component {
   constructor() {
@@ -11,6 +12,7 @@ export default class Game extends Component {
     updateUserList();
     addMessage();
     leaveRoom();
+    getUserList(roomStore.state.room);
   }
 
   render() {

@@ -1,4 +1,4 @@
-import roomStore, { exitRoom, publicRooms } from "../store/room";
+import roomStore, { exitRoom, publicRooms, usersInRoom } from "../store/room";
 import chatStore from "../store/chat";
 
 const socket = io('http://localhost:5005');
@@ -24,7 +24,7 @@ export function updateUserList() {
       state.isEnter = true;
       state.userList = [
         ...state.userList,
-        { id, username, avatar }
+        user
       ];
       state.userListUpdate = {
         id, username, avatar, isEnter: true
@@ -77,4 +77,10 @@ export function addMessage() {
 export function getRoomList() {
   socket.emit('get_rooms');
   socket.on('rooms', publicRooms);
+}
+
+//방에 속한 유저 정보 가져오기
+export function getUserList(room) {
+  socket.emit('get_users', room);
+  socket.on('users', usersInRoom);
 }

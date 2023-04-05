@@ -49,6 +49,11 @@ export function publicRooms(rooms) {
   roomStore.state.roomList = rooms;
 }
 
+//유저 목록 보여주기
+export function usersInRoom(users) {
+  roomStore.state.userList = users;
+}
+
 export function exitRoom() {
   const state = roomStore.state;
   //room state 초기화
