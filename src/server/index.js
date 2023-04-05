@@ -11,17 +11,7 @@ const io = SocketIo(server, {
   }
 });
 
-function getRoomList() {
-  const { sids, rooms } = io.sockets.adapter;
-  const publicRooms = [];
-  rooms.forEach((v, k) => {
-    if (!sids.get(k)) {
-      const [name, id] = k.split('?id=');
-      publicRooms.push({ name, id });
-    }
-  });
-  return publicRooms;
-}
+const rooms = {};
 
 io.on('connection', socket => {
   socket['username'] = 'anonymous';
@@ -40,14 +30,19 @@ io.on('connection', socket => {
   socket.on('enter_room', (room, done) => {
     socket.join(room);
     done();
-    //console.log(io.sockets.adapter.rooms.get(roomName));
+    //const userList = io.sockets.adapter.rooms.get(room);
 
-    //유저 입장 알리기
     const user = {
       id: socket.id,
       username: socket.username,
       avatar: socket.avatar,
-    }
+    };
+
+    //입장한 방에 유저 정보 업데이트
+    if (!rooms[room]) rooms[room] = [];
+    rooms[room].push(user);
+
+    //유저 입장 알리기
     io.to(room).emit('welcome', user);
   });
 
@@ -75,16 +70,20 @@ io.on('connection', socket => {
 
   //퇴장하기
   socket.on('disconnect', () => {
-    //방 목록 업데이트
-    // io.sockets.emit('room_change', publicRooms);
-
-    //추후 적용
-    //socket.emit('leave_room');
+    //방 정보에서 퇴장한 유저 제거
+    for (const [room, sockets] of Object.entries(rooms)) {
+      if (sockets.find(soc => soc.id === socket.id)) {
+        rooms[room] = sockets.filter(soc => soc.id !== socket.id);
+      }
+    }
   });
 
   //방 목록 가져오기
   socket.on('get_rooms', () => {
-    const roomList = getRoomList();
+    const roomList = Object.keys(rooms).map(room => {
+      const [name, id] = room.split('?id=');
+      return { name, id };
+    });
     socket.emit('rooms', roomList);
   });
 });
