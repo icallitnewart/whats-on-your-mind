@@ -39,7 +39,7 @@ io.on('connection', socket => {
       score: 0
     };
 
-    //입장한 방에 유저 정보 업데이트
+    //방 목록에 방 추가 및 입장한 방에 유저 정보 업데이트
     if (!rooms[room]) rooms[room] = [];
     rooms[room].push(user);
 
@@ -75,6 +75,9 @@ io.on('connection', socket => {
     for (const [room, sockets] of Object.entries(rooms)) {
       if (sockets.find(soc => soc.id === socket.id)) {
         rooms[room] = sockets.filter(soc => soc.id !== socket.id);
+
+        //방에 아무도 남아있지 않다면 방 제거
+        if (rooms[room].length === 0) delete rooms[room];
       }
     }
   });
