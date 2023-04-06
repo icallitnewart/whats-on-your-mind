@@ -1,6 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { Store } from "../core";
 import { enterRoom, leaveRoom } from "../utils/socket";
+import { changeRoute } from "./location";
 
 const roomStore = new Store({
   room: '',
@@ -40,7 +41,7 @@ export function joinRoom(roomName, roomId) {
     roomStore.state.roomName = roomName;
     roomStore.state.roomId = roomId;
     roomStore.state.isEnter = true;
-    location.href = '/#/game';
+    changeRoute('Game');
   });
 }
 

@@ -1,5 +1,6 @@
 import { Store } from "../core";
 import { setProfile } from "../utils/socket";
+import { changeRoute } from "./location";
 
 const profileStore = new Store({
   username: '',
@@ -21,7 +22,7 @@ export const checkErrorBeforeSubmit = () => {
     //submit 성공
     state.error = null;
     setProfile(state.username, state.avatar, () => {
-      location.href = '#/rooms';
+      changeRoute('Rooms');
     });
   } else {
     state.error = '빈칸을 입력해 주세요.';

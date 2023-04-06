@@ -1,4 +1,5 @@
 import { Component } from "../../core";
+import locationStore from "../../store/location";
 import Logo from "./Logo";
 import Menu from "./Menu";
 
@@ -10,11 +11,11 @@ export default class Header extends Component {
   }
 
   render() {
-    const path = location.hash.replace('#/', '');
+    const page = locationStore.state.currentPage;
 
     this.element.append(
       new Logo().element,
-      (!path) ? new Menu().element : ''
+      (page === 'Entry') ? new Menu().element : ''
     )
   }
 }
