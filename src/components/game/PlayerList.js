@@ -2,6 +2,11 @@ import { Component } from "../../core";
 import roomStore from "../../store/room";
 
 export default class PlayerList extends Component {
+  constructor() {
+    super();
+    roomStore.subscribe('userList', ()=> this.render());
+  }
+  
   render() {
     this.element.classList.add('player-list');
     this.element.innerHTML = /* html */`
